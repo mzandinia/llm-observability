@@ -1,0 +1,32 @@
+{
+  "title": "LLM Observability",
+  "uid": "llm-obs",
+  "panels": [
+    {
+      "title": "Eval Pass Rate",
+      "type": "gauge",
+      "targets": [{ "expr": "llm_eval_pass_rate", "legendFormat": "pass rate" }],
+      "gridPos": { "h": 6, "w": 8, "x": 0, "y": 0 }
+    },
+    {
+      "title": "Faithfulness (hallucination proxy)",
+      "type": "stat",
+      "targets": [{ "expr": "llm_eval_faithfulness_mean", "legendFormat": "faithfulness" }],
+      "gridPos": { "h": 6, "w": 8, "x": 8, "y": 0 }
+    },
+    {
+      "title": "Eval Latency p95 proxy",
+      "type": "timeseries",
+      "targets": [{ "expr": "llm_eval_latency_ms_mean", "legendFormat": "latency ms" }],
+      "gridPos": { "h": 8, "w": 16, "x": 0, "y": 6 }
+    },
+    {
+      "title": "HTTP request rate (from project2)",
+      "type": "timeseries",
+      "targets": [{ "expr": "rate(http_requests_total[5m])", "legendFormat": "{{handler}}" }],
+      "gridPos": { "h": 8, "w": 16, "x": 0, "y": 14 }
+    }
+  ],
+  "schemaVersion": 38,
+  "version": 1
+}
